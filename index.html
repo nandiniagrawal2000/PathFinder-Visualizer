@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title> 
+        Shortest Path Finder 
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/d1f3dd87b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+ 
+<body>  
+ 
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark" id="myNavbar">
+        <a class="navbar-brand" href="#" id="logo"> 
+            Shortest Path Finder 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+            <button class="btn btn-outline-success btn-space " type="submit" id="instBtn">
+                INSTRUCTIONS
+            </button>
+            <div id="light" class="white_content">
+                <p>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Click inside the grid and drag the mouse to draw walls/obstacles which create blockage for the path.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Green node/cell is the starting position. Click and drag to move it.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Red node/cell is the destination point. Click and drag to change it.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Violet-blue node/cell is an alternate destination point. Click and drag to change it. Starting Point forms path with the Destination Point( either red or Violet-blue, - whichever is closer).
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Select the algorithm and then its heuristic. The main algorithm should be selected(clicked) before selecting the heuristic.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Select 'Click to Allow Diagonal' to allow diagonal movement/path.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Select 'Click to Disallow Diagonal' to restrict movement/path from diagonal movement.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Click 'Random Walls' to create Walls randomly.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Click 'Start' after selecting desired algorithm.
+                    <br>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                    </svg>
+                    Click 'Clear Board' to get default settings i.e. to reset the grid.
+                    <br>
+                    <br>
+                    <b> NOTE: </b> In case of BiDirectional Algorithms, Alternate Destination Point does not exist. The Path is formed between the Staring Point (green) and Destination Point (red).
+                </p>
+                <a href="#" id="clBtn">
+                    <br>
+                    <p> Close </p>
+                </a>
+            </div>
+            <div id="fade" class="black_overlay"></div>
+ 
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownKeys" data-toggle="dropdown">
+                    Keys
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownKeys">
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key wall"></div>
+                            <div> Wall </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key start"></div>  
+                                <div> Start </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key end"></div>
+                            <div> Target </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key temp"></div>
+                            <div> Target 2 </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key success"></div>
+                            <div> Shortest Path to Target</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key successHault"></div>
+                            <div> Shortest Path to Target 2</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key"></div>
+                            <div> Unvisited </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="d-flex pr-3">
+                            <div class="key searching"></div>  
+                            <div class="key visited"></div> 
+                            <div> Visited </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+ 
+            <div class="dropdown">
+                <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+                    Algorithms
+                </button>
+                <ul class="dropdown-menu"  id="algorithms">
+                    <li>
+                        <a class="dropdown-item" tabindex="-1" href="#">Dijkstra</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" tabindex="-1" href="#">Breadth-First Search (BFS)</a>
+                    </li>
+                     <li>
+                        <a class="dropdown-item" tabindex="-1" href="#">Bi-directional Breadth-First Search (BFS)</a>
+                    </li>
+                     <li class="dropdown-submenu ">
+                        <a class="dropdown-item dropdown-toggle"  tabindex="-1" href="#">A*</a>
+                        <ul class="dropdown-submenu" id="distancemethod">Heuristics-
+                            <li>
+                                <a class="distancemethod" tabindex="-1" href="#">Manhattan</a>
+                            </li>
+                            <li>
+                                <a class="distancemethod" tabindex="-1" href="#">Euclidean</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Octile</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Chebyshev</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu ">
+                        <a class="dropdown-item dropdown-toggle"  tabindex="-1" href="#">Bi-directional A*</a>
+                        <ul class="dropdown-submenu" id="distancemethod">Heuristics-
+                            <li>
+                                <a class="distancemethod" tabindex="-1" href="#">Manhattan</a>
+                            </li>
+                            <li>
+                                <a class="distancemethod" tabindex="-1" href="#">Euclidean</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Octile</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Chebyshev</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu ">
+                        <a class="dropdown-item dropdown-toggle" tabindex="-1"  href="#">Greedy Best-First Search</a>
+                            
+                        <ul class="dropdown-submenu " id="distancemethod">Heuristics-
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Manhattan</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Euclidean</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Octile</a>
+                            </li>
+                            <li>
+                                <a  class="distancemethod" tabindex="-1" href="#">Chebyshev</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+ 
+            <button class="btn btn-outline-warning btn-space " type="submit" id="diagnolBtn">
+                Click to Allow Diagnol
+            </button>   
+            <button class="btn btn-outline-info btn-space " type="submit" id="randomBtn">
+                Random Walls
+            </button> 
+        </div>     
+         
+        <button class="btn btn-outline-success btn-space " type="submit" id="startBtn">
+            Start
+        </button>
+        <button class="btn btn-outline-warning btn-space" type="submit" id="clearBtn">
+            Clear Board
+        </button>
+    </nav>
+ 
+    <div class="alert alert-warning" role="alert">
+        <div class ="d-flex flex-column" id="results">
+            <div class="d-flex justify-content-center"> 
+                <div id="duration" class="d-flex justify-content-center"> 
+                    Please select an algorithm and press Start
+                </div>
+                <div id="length" class="d-flex justify-content-center"></div> 
+                <i id="resultsIcon" class="fas fa-exclamation"></i>
+            </div>
+        </div>
+    </div>
+ 
+    <div id="card-cont">
+        <div class="card">
+            <div class="card-body">
+            <div class="d-flex flex-column align-items-center" >
+                <div id="tableContainer"></div>
+            </div>
+            </div>
+        </div>
+    </div> 
+ 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+ 
+</body>
+</html>
