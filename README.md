@@ -2,7 +2,7 @@
 It is a Web Application, built on the conepts of Artificial Intelligence, which finds the Shortest Path between 2 Points.<br>
 To run the application, visit: https://marsmates.github.io/NAVIGATE-THE-MARS-ROVER/
 <br><br>
-This Project was done under Microsoft Engage Program.
+This Project was done under Microsoft Engage Program in a team of 2.
 <br><br>
 There is One Starting Point and Two Destination Points.
 <br>
