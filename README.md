@@ -1,9 +1,9 @@
 # PATHFINDER-VISUALIZER
 It is a Web Application, built on the conepts of Artificial Intelligence, which finds the Shortest Path between 2 Points.<br>
 To run the application, visit: https://marsmates.github.io/NAVIGATE-THE-MARS-ROVER/
-<br>
+<br><br>
 This Project was done under Microsoft Engage Program.
-<br>
+<br><br>
 There is One Starting Point and Two Destination Points.
 <br>
 Out of the two Destination Points, the one which is closer to the Starting Point is taken and it forms the shortest path with Starting Position.
